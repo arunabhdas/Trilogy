@@ -1,1 +1,1 @@
-# PlusMaxPro
+# Trilogy
