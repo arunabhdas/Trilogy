@@ -30,6 +30,7 @@ chmod +x setup-trilogy.sh
 ### Running the App
 Run in development environment as follows -
 ```bash
+cd trilogy
 ./gradlew clean
 ./gradlew wasmJsBrowserDevelopmentRun
 ```
