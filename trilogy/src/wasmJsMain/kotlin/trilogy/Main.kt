@@ -134,9 +134,7 @@ class TrilogyApp {
 }
 
 fun main() {
-    window.onload = {
-        println("Trilogy app starting...")
-        val app = TrilogyApp()
-        app.initialize()
-    }
+    println("Trilogy app starting...")
+    val app = TrilogyApp()
+    app.initialize()
 }
