@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://beam24gh"]
+
+[ext_resource type="Script" path="res://src/props/Cranes/Beam.gd" id="1_pw2vy"]
+
+[sub_resource type="RectangleShape2D" id="1_t1wcf"]
+size = Vector2(120, 16)
+
+[sub_resource type="Gradient" id="2_hu6g3"]
+colors = PackedColorArray(0.588, 0.514, 0.631, 1, 0.388, 0.345, 0.463, 1)
+
+[sub_resource type="GradientTexture2D" id="3_cuf2r"]
+gradient = SubResource("2_hu6g3")
+width = 128
+
+[node name="Beam" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_pw2vy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1_t1wcf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+self_modulate = Color(0.588, 0.514, 0.631, 1)
+texture = SubResource("3_cuf2r")
+scale = Vector2(1.2, 0.28)

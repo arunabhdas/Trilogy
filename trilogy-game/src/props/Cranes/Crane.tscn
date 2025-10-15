@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://crane36qy"]
+
+[ext_resource type="Script" path="res://src/props/Cranes/Crane.gd" id="1_i7oq5"]
+[ext_resource type="PackedScene" path="res://src/props/Cranes/Beam.tscn" id="2_a3g9p"]
+
+[sub_resource type="Gradient" id="1_b2kt0"]
+colors = PackedColorArray(0.345, 0.318, 0.431, 1, 0.251, 0.224, 0.329, 1)
+
+[sub_resource type="GradientTexture2D" id="2_ybjr6"]
+gradient = SubResource("1_b2kt0")
+width = 128
+
+[node name="Crane" type="Node2D"]
+script = ExtResource("1_i7oq5")
+beam_scene = ExtResource("2_a3g9p")
+
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+self_modulate = Color(0.345, 0.318, 0.431, 1)
+scale = Vector2(4, 0.4)
+texture = SubResource("2_ybjr6")
+
+[node name="Cable" type="Line2D" parent="."]
+points = PackedVector2Array(0, -56, 0, 96)
+default_color = Color(0.251, 0.224, 0.329, 0.8)
+width = 4.0
+
+[node name="Beam" parent="." instance=ExtResource("2_a3g9p")]

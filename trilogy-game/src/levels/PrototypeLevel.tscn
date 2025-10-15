@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://levelproto8m"]
+
+[ext_resource type="PackedScene" path="res://src/actors/Milo/Milo.tscn" id="1_zm3r2"]
+[ext_resource type="PackedScene" path="res://src/props/Cranes/Crane.tscn" id="2_yq6r0"]
+
+[sub_resource type="RectangleShape2D" id="1_p1v42"]
+size = Vector2(900, 32)
+
+[node name="PrototypeLevel" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="World"]
+position = Vector2(0, 260)
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Floor"]
+shape = SubResource("1_p1v42")
+
+[node name="Milo" parent="World" instance=ExtResource("1_zm3r2")]
+position = Vector2(-180, 200)
+
+[node name="CraneLeft" parent="World" instance=ExtResource("2_yq6r0")]
+position = Vector2(-220, 40)
+swing_range = 260.0
+lift_amplitude = 50.0
+anchor_drop = 140.0
+phase_offset = 0.0
+
+[node name="CraneRight" parent="World" instance=ExtResource("2_yq6r0")]
+position = Vector2(220, 20)
+swing_range = 220.0
+lift_amplitude = 64.0
+anchor_drop = 150.0
+phase_offset = 0.35
+
