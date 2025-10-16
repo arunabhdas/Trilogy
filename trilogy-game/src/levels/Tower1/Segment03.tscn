@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://tower1seg03"]
+
+[ext_resource type="Script" path="res://src/levels/Segment.gd" id="1_sgmt"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/StaticPlatform/StaticPlatform.tscn" id="2_plat"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/CollapsingScaffold/CollapsingScaffold.tscn" id="3_col"]
+[ext_resource type="PackedScene" path="res://src/props/Hazards/Pendulum/PendulumHazard.tscn" id="4_pen"]
+
+[node name="Segment03" type="Node2D"]
+script = ExtResource("1_sgmt")
+height = 800.0
+segment_name = "Scaffolding Gauntlet"
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="EntryPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, 0)
+width = 260.0
+height = 28.0
+
+[node name="ScaffoldA" parent="Platforms" instance=ExtResource("3_col")]
+position = Vector2(-200, -160)
+collapse_delay = 0.5
+respawn_delay = 4.0
+
+[node name="ScaffoldB" parent="Platforms" instance=ExtResource("3_col")]
+position = Vector2(0, -320)
+collapse_delay = 0.4
+respawn_delay = 4.0
+
+[node name="ScaffoldC" parent="Platforms" instance=ExtResource("3_col")]
+position = Vector2(200, -480)
+collapse_delay = 0.6
+respawn_delay = 4.5
+
+[node name="Pendulum" parent="Platforms" instance=ExtResource("4_pen")]
+position = Vector2(0, -600)
+rope_length = 220.0
+swing_angle = 0.7
+swing_speed = 0.45
+
+[node name="ExitPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, -780)
+width = 220.0
+height = 24.0
+

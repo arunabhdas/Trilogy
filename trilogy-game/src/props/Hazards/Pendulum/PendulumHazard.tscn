@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://pendulum4vx"]
+
+[ext_resource type="Script" path="res://src/props/Hazards/Pendulum/PendulumHazard.gd" id="1_j7nql"]
+
+[sub_resource type="CircleShape2D" id="1_bvx2c"]
+radius = 28.0
+
+[node name="PendulumHazard" type="Node2D"]
+script = ExtResource("1_j7nql")
+
+[node name="Cable" type="Line2D" parent="."]
+default_color = Color(0.35, 0.31, 0.27, 0.7)
+width = 6.0
+
+[node name="Ball" type="AnimatableBody2D" parent="."]
+collision_layer = 8
+collision_mask = 1
+position = Vector2(0, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("1_bvx2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+self_modulate = Color(0.63, 0.45, 0.39, 1)
+scale = Vector2(0.9, 0.9)
+

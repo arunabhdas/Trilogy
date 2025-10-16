@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://statplat3h1"]
+
+[ext_resource type="Script" path="res://src/props/Platforms/StaticPlatform/StaticPlatform.gd" id="1_p8xcl"]
+
+[sub_resource type="RectangleShape2D" id="1_tl3yf"]
+size = Vector2(200, 24)
+
+[sub_resource type="Gradient" id="2_nlg5b"]
+colors = PackedColorArray(0.37, 0.33, 0.29, 1, 0.51, 0.47, 0.42, 1)
+
+[node name="StaticPlatform" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_p8xcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("1_tl3yf")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+color = Color(0.38, 0.33, 0.29, 1)
+

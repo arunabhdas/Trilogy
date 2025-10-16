@@ -6,7 +6,7 @@
 - Start with polished single-player experience; architect code paths to support optional online/local multiplayer later without rewrites.
 
 ## Target Platforms & Technology
-- Engine: Godot 4.3 (LTS) using GDScript for gameplay logic, with optional GDNative for future performance critical modules.
+- Engine: Godot 4.5 (LTS) using GDScript for gameplay logic, with optional GDNative for future performance critical modules.
 - Platforms: macOS, Windows, Linux desktop exports; Android and iOS mobile builds via Godot export presets.
 - Source layout (proposed):
   ```

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://tower1seg01"]
+
+[ext_resource type="Script" path="res://src/levels/Segment.gd" id="1_sgmt"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/StaticPlatform/StaticPlatform.tscn" id="2_plat"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/CollapsingScaffold/CollapsingScaffold.tscn" id="3_col"]
+
+[node name="Segment01" type="Node2D"]
+script = ExtResource("1_sgmt")
+height = 800.0
+segment_name = "Foundation - Entry"
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="BaseFloor" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, 0)
+width = 640.0
+height = 36.0
+
+[node name="MidPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(-200, -220)
+width = 220.0
+height = 24.0
+
+[node name="MidPlatform2" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(200, -360)
+width = 220.0
+height = 24.0
+
+[node name="UpperPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, -520)
+width = 260.0
+height = 24.0
+
+[node name="ScaffoldIntro" parent="Platforms" instance=ExtResource("3_col")]
+position = Vector2(120, -120)
+collapse_delay = 0.8
+respawn_delay = 5.0
+

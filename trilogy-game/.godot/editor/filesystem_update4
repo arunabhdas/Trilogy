@@ -1,0 +1,6 @@
+res://src/actors/Milo/Milo.gd
+res://src/props/Cranes/Beam.gd
+res://src/props/Platforms/RotatingWheel/RotatingWheel.gd
+res://src/props/Platforms/StaticPlatform/StaticPlatform.gd
+res://autoload/GameDirector.gd
+res://src/ui/Hud.gd

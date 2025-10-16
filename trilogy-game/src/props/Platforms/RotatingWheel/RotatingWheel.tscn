@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://rotwheel7p5"]
+
+[ext_resource type="Script" path="res://src/props/Platforms/RotatingWheel/RotatingWheel.gd" id="1_l3syv"]
+
+[sub_resource type="CircleShape2D" id="1_t6u5c"]
+radius = 64.0
+
+[node name="RotatingWheel" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_l3syv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1_t6u5c")
+
+[node name="Core" type="Sprite2D" parent="."]
+texture_filter = 1
+self_modulate = Color(0.486, 0.443, 0.573, 1)
+scale = Vector2(0.5, 0.5)
+

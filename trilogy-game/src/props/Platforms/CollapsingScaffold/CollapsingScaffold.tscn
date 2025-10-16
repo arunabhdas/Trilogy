@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://collapsescaff7l"]
+
+[ext_resource type="Script" path="res://src/props/Platforms/CollapsingScaffold/CollapsingScaffold.gd" id="1_s9pqb"]
+
+[sub_resource type="RectangleShape2D" id="1_w2n0k"]
+size = Vector2(160, 24)
+
+[sub_resource type="RectangleShape2D" id="2_u6n7b"]
+size = Vector2(160, 20)
+
+[node name="CollapsingScaffold" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_s9pqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("1_w2n0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.39, 0.35, 0.31, 1)
+scale = Vector2(1.6, 0.4)
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -12)
+shape = SubResource("2_u6n7b")
+
+[node name="CollapseTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true

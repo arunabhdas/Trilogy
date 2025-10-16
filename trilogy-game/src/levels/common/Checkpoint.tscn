@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://checkpointah7"]
+
+[ext_resource type="Script" path="res://src/levels/common/Checkpoint.gd" id="1_ckpt"]
+
+[sub_resource type="CircleShape2D" id="1_shape"]
+radius = 18.0
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = false
+script = ExtResource("1_ckpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1_shape")
+
+[node name="Marker" type="Sprite2D" parent="."]
+self_modulate = Color(0.66, 0.59, 0.76, 0.9)
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+visible = false

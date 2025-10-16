@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://tower1seg05"]
+
+[ext_resource type="Script" path="res://src/levels/Segment.gd" id="1_sgmt"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/StaticPlatform/StaticPlatform.tscn" id="2_plat"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/CollapsingScaffold/CollapsingScaffold.tscn" id="3_col"]
+[ext_resource type="PackedScene" path="res://src/props/Hazards/Pendulum/PendulumHazard.tscn" id="4_pen"]
+
+[node name="Segment05" type="Node2D"]
+script = ExtResource("1_sgmt")
+height = 800.0
+segment_name = "Summit Approach"
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="EntryPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, 0)
+width = 260.0
+height = 24.0
+
+[node name="PendulumA" parent="Platforms" instance=ExtResource("4_pen")]
+position = Vector2(-180, -200)
+rope_length = 180.0
+swing_angle = 0.5
+swing_speed = 0.6
+phase_offset = 0.15
+
+[node name="PendulumB" parent="Platforms" instance=ExtResource("4_pen")]
+position = Vector2(180, -420)
+rope_length = 200.0
+swing_angle = 0.55
+swing_speed = 0.5
+phase_offset = 0.45
+
+[node name="FinalScaffold" parent="Platforms" instance=ExtResource("3_col")]
+position = Vector2(0, -600)
+collapse_delay = 0.7
+respawn_delay = 6.0
+
+[node name="Summit" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, -780)
+width = 320.0
+height = 28.0
+

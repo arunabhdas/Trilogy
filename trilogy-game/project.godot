@@ -1,39 +1,98 @@
 ; Engine configuration file.
-; It's best edited using the Godot editor.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
 [application]
+
 config/name="Trilogy"
-run/main_scene="res://src/levels/PrototypeLevel.tscn"
+run/main_scene="res://src/levels/Tower1/Tower1.tscn"
 config/features=PackedStringArray("4.3")
 config/custom_features=PackedStringArray()
 
 [autoload]
+
 GameDirector="*res://autoload/GameDirector.gd"
 
-[rendering]
-renderer/rendering_method="forward_plus"
-renderer/renderer_name="ForwardPlus"
-
 [input]
+
 move_left={
 "deadzone": 0.5,
-"events": [ { "type": "KEY", "keycode": 65 }, { "type": "KEY", "keycode": 4194319 }, { "type": "JOY_AXIS", "axis": 0, "axis_value": -1.0 } ]
+"events": [{
+"keycode": 65,
+"type": "KEY"
+}, {
+"keycode": 4194319,
+"type": "KEY"
+}, {
+"axis": 0,
+"axis_value": -1.0,
+"type": "JOY_AXIS"
+}]
 }
 move_right={
 "deadzone": 0.5,
-"events": [ { "type": "KEY", "keycode": 68 }, { "type": "KEY", "keycode": 4194321 }, { "type": "JOY_AXIS", "axis": 0, "axis_value": 1.0 } ]
+"events": [{
+"keycode": 68,
+"type": "KEY"
+}, {
+"keycode": 4194321,
+"type": "KEY"
+}, {
+"axis": 0,
+"axis_value": 1.0,
+"type": "JOY_AXIS"
+}]
 }
 jump={
 "deadzone": 0.5,
-"events": [ { "type": "KEY", "keycode": 32 }, { "type": "KEY", "keycode": 4194320 }, { "type": "JOY_BUTTON", "button_index": 0 } ]
+"events": [{
+"keycode": 32,
+"type": "KEY"
+}, {
+"keycode": 4194320,
+"type": "KEY"
+}, {
+"button_index": 0,
+"type": "JOY_BUTTON"
+}]
 }
 dash={
 "deadzone": 0.5,
-"events": [ { "type": "KEY", "keycode": 70 }, { "type": "JOY_BUTTON", "button_index": 1 } ]
+"events": [{
+"keycode": 70,
+"type": "KEY"
+}, {
+"button_index": 1,
+"type": "JOY_BUTTON"
+}]
+}
+time_slow={
+"deadzone": 0.5,
+"events": [{
+"keycode": 4194325,
+"type": "KEY"
+}, {
+"button_index": 4,
+"type": "JOY_BUTTON"
+}]
 }
 pause={
 "deadzone": 0.5,
-"events": [ { "type": "KEY", "keycode": 80 }, { "type": "KEY", "keycode": 4194324 } ]
+"events": [{
+"keycode": 80,
+"type": "KEY"
+}, {
+"keycode": 4194324,
+"type": "KEY"
+}]
 }
+
+[rendering]
+
+renderer/renderer_name="ForwardPlus"

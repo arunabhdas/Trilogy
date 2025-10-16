@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://tower1main"]
+
+[ext_resource type="PackedScene" path="res://src/actors/Milo/Milo.tscn" id="1_milo"]
+[ext_resource type="PackedScene" path="res://src/levels/Tower1/Segment01.tscn" id="2_seg01"]
+[ext_resource type="PackedScene" path="res://src/levels/Tower1/Segment02.tscn" id="3_seg02"]
+[ext_resource type="PackedScene" path="res://src/levels/Tower1/Segment03.tscn" id="4_seg03"]
+[ext_resource type="PackedScene" path="res://src/levels/Tower1/Segment04.tscn" id="5_seg04"]
+[ext_resource type="PackedScene" path="res://src/levels/Tower1/Segment05.tscn" id="6_seg05"]
+[ext_resource type="PackedScene" path="res://src/levels/common/Checkpoint.tscn" id="7_ckpt"]
+[ext_resource type="PackedScene" path="res://src/ui/Hud.tscn" id="8_hud"]
+
+[sub_resource type="RectangleShape2D" id="1_boundary"]
+size = Vector2(1200, 40)
+
+[node name="Tower1" type="Node2D"]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="Layer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.6, 0.9)
+
+[node name="Backdrop" type="ColorRect" parent="Background/Layer"]
+color = Color(0.117, 0.117, 0.180, 1)
+anchor_right = 1.0
+anchor_bottom = 1.0
+size = Vector2(1920, 4096)
+offset = Vector2(-960, -4096)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Segment01" parent="World" instance=ExtResource("2_seg01")]
+position = Vector2(0, 0)
+
+[node name="Segment02" parent="World" instance=ExtResource("3_seg02")]
+position = Vector2(0, -800)
+
+[node name="Segment03" parent="World" instance=ExtResource("4_seg03")]
+position = Vector2(0, -1600)
+
+[node name="Segment04" parent="World" instance=ExtResource("5_seg04")]
+position = Vector2(0, -2400)
+
+[node name="Segment05" parent="World" instance=ExtResource("6_seg05")]
+position = Vector2(0, -3200)
+
+[node name="Boundaries" type="StaticBody2D" parent="World"]
+collision_layer = 2
+collision_mask = 1
+
+[node name="Left" type="CollisionShape2D" parent="World/Boundaries"]
+position = Vector2(-360, -1600)
+rotation = 1.5708
+shape = SubResource("1_boundary")
+
+[node name="Right" type="CollisionShape2D" parent="World/Boundaries"]
+position = Vector2(360, -1600)
+rotation = 1.5708
+shape = SubResource("1_boundary")
+
+[node name="Ceiling" type="CollisionShape2D" parent="World/Boundaries"]
+position = Vector2(0, -3600)
+shape = SubResource("1_boundary")
+
+[node name="Checkpoints" type="Node2D" parent="World"]
+
+[node name="BaseCamp" parent="World/Checkpoints" instance=ExtResource("7_ckpt")]
+position = Vector2(-260, -60)
+checkpoint_name = "Base Camp"
+
+[node name="ScaffoldRise" parent="World/Checkpoints" instance=ExtResource("7_ckpt")]
+position = Vector2(0, -780)
+checkpoint_name = "Scaffold Rise"
+
+[node name="WheelCrossing" parent="World/Checkpoints" instance=ExtResource("7_ckpt")]
+position = Vector2(160, -1580)
+checkpoint_name = "Wheel Crossing"
+
+[node name="PendulumGauntlet" parent="World/Checkpoints" instance=ExtResource("7_ckpt")]
+position = Vector2(-40, -2380)
+checkpoint_name = "Pendulum Gauntlet"
+
+[node name="Summit" parent="World/Checkpoints" instance=ExtResource("7_ckpt")]
+position = Vector2(0, -3180)
+checkpoint_name = "Summit Approach"
+
+[node name="Milo" parent="World" instance=ExtResource("1_milo")]
+position = Vector2(-260, -40)
+
+[node name="Camera2D" type="Camera2D" parent="World/Milo"]
+current = true
+limit_left = -340
+limit_right = 340
+limit_top = -3600
+limit_bottom = 200
+smoothing_enabled = true
+smoothing_speed = 5.0
+
+[node name="HUD" parent="." instance=ExtResource("8_hud")]

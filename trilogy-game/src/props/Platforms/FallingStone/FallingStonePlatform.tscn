@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://fallstone5re"]
+
+[ext_resource type="Script" path="res://src/props/Platforms/FallingStone/FallingStonePlatform.gd" id="1_g0ddy"]
+
+[sub_resource type="RectangleShape2D" id="1_6gk7b"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="2_vwf5p"]
+size = Vector2(96, 32)
+
+[node name="FallingStonePlatform" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_g0ddy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("1_6gk7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.37, 0.32, 0.28, 1)
+scale = Vector2(0.9, 0.6)
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -8)
+shape = SubResource("2_vwf5p")
+
+[node name="FallTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+

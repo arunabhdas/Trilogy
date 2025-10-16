@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://tower1seg02"]
+
+[ext_resource type="Script" path="res://src/levels/Segment.gd" id="1_sgmt"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/StaticPlatform/StaticPlatform.tscn" id="2_plat"]
+[ext_resource type="PackedScene" path="res://src/props/Platforms/RotatingWheel/RotatingWheel.tscn" id="3_wheel"]
+
+[node name="Segment02" type="Node2D"]
+script = ExtResource("1_sgmt")
+height = 800.0
+segment_name = "Rotating Wheels"
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="EntryPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(-220, 0)
+width = 240.0
+height = 24.0
+
+[node name="ExitPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(220, -780)
+width = 260.0
+height = 24.0
+
+[node name="WheelLower" parent="Platforms" instance=ExtResource("3_wheel")]
+position = Vector2(-60, -220)
+radius = 72.0
+spoke_count = 5
+rotation_speed = 0.9
+
+[node name="WheelUpper" parent="Platforms" instance=ExtResource("3_wheel")]
+position = Vector2(160, -480)
+radius = 72.0
+spoke_count = 6
+rotation_speed = -1.1
+
+[node name="RestPlatform" parent="Platforms" instance=ExtResource("2_plat")]
+position = Vector2(0, -640)
+width = 200.0
+height = 24.0
+
